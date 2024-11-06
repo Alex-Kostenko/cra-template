@@ -7,18 +7,14 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject",
     "tidy": "eslint --fix",
-    "lint": "eslint 2>&1 | grep -Ei 'error|warning' | wc -l | xargs -I {} echo '-= {} problems, if there`re use yarn tidy =-' ",
+    "lint": "eslint .",
+    "lint:count": "eslint 2>&1 | grep -Ei 'error|warning' | wc -l | xargs -I {} echo '-= {} problems, if there`re use yarn tidy =-' ",
     "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.119",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -45,6 +41,10 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.119",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^13.5.0",
