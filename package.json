@@ -2,10 +2,19 @@
   "name": "test-project",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "craco start --verbose",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "tidy": "eslint --fix",
+    "lint": "eslint 2>&1 | grep -Ei 'error|warning' | wc -l | xargs -I {} echo '-= {} problems, if there`re use yarn tidy =-' ",
+    "prepare": "husky"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.119",
     "@types/react": "^18.3.12",
@@ -16,17 +25,9 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "engines": {
+    "npm": ">=10.2.3 <=10.2.3",
+    "node": ">=18.19.0 <=18.19.0"
   },
   "browserslist": {
     "production": [
@@ -39,5 +40,34 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^15.0.6",
+    "@testing-library/user-event": "^13.5.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@craco/craco": "^7.1.0",
+    "@craco/types": "^7.1.0",
+    "@eslint/js": "^9.14.0",
+    "@jest/test-result": "^29.7.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-react-app": "^10.0.1",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "3.3.3",
+    "typescript-eslint": "^8.13.0"
   }
 }
