@@ -48,4 +48,8 @@ const ActionsWrap = styled.div`
   }
 `;
 
-export {ActionsWrap, Avatar, Comment, Name, Text, Wrap};
+const EditContainer = styled.div`
+  flex-grow: 1;
+`;
+
+export {ActionsWrap, Avatar, Comment, EditContainer, Name, Text, Wrap};

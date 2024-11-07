@@ -3,7 +3,7 @@ import {FC} from 'react';
 
 import {EditIcon, TrashIcon} from '@/assets/svg';
 
-import {ActionsWrap, Avatar, Comment as CommentStyle, Name, Text, Wrap} from './style';
+import {ActionsWrap, Avatar, Comment as CommentStyle, EditContainer, Name, Text, Wrap} from './style';
 
 interface CommentProps {
   id: string;
@@ -32,7 +32,11 @@ const Comment: FC<CommentProps> = ({id, text, avatarSrc, name, onDelete, onSelec
           </ActionsWrap>
         </>
       )}
-      {idToEdit === id && <AddComment onSave={data => onSaveEdit(id, data)} text={text} name={name} />}
+      {idToEdit === id && (
+        <EditContainer>
+          <AddComment onSave={data => onSaveEdit(id, data)} text={text} name={name} />
+        </EditContainer>
+      )}
     </CommentStyle>
   );
 };
