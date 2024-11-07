@@ -7,6 +7,10 @@ const Comment = styled.div`
   border-radius: 15px;
   overflow: hidden;
   position: relative;
+
+  &:hover svg {
+    display: block;
+  }
 `;
 
 const Wrap = styled.div`
@@ -40,6 +44,7 @@ const ActionsWrap = styled.div`
   & svg {
     cursor: pointer;
     height: 25px;
+    display: none;
   }
 `;
 
