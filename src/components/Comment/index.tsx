@@ -1,7 +1,8 @@
 import {FC} from 'react';
 
-import {Avatar, Comment as CommentStyle, Name, Text, Wrap, ActionsWrap} from './style';
 import {EditIcon, TrashIcon} from '@/assets/svg';
+
+import {ActionsWrap, Avatar, Comment as CommentStyle, Name, Text, Wrap} from './style';
 
 interface CommentProps {
   text: string;

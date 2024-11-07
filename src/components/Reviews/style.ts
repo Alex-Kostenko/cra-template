@@ -5,7 +5,7 @@ const ReviewsStyled = styled.div`
   padding: 25px 50px;
 
   & > *:last-child {
-      margin-top: 25px;
+    margin-top: 25px;
   }
 `;
 
@@ -23,4 +23,4 @@ const NoReviewsStyled = styled.h2`
   color: white;
 `;
 
-export {HeaderStyled,ReviewsStyled,CommentsContainerStyled, NoReviewsStyled};
+export {CommentsContainerStyled, HeaderStyled, NoReviewsStyled, ReviewsStyled};

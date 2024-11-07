@@ -41,7 +41,7 @@ export default [
           jsx: true,
         },
       },
-      globals: globals.browser,
+      globals: {...globals.browser, ...globals.node},
     },
     rules: {
       'no-unused-vars': 'off',
@@ -62,8 +62,9 @@ export default [
       'no-console': 2,
       'react/react-in-jsx-scope': 'off',
       'react/jsx-first-prop-new-line': [2, 'multiline'],
-      'import/order': [2, {'newlines-between': 'always'}],
+      'import/order': 'off',
       'import/newline-after-import': [1, {count: 1}],
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
 ];

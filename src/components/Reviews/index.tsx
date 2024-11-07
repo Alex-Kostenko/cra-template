@@ -1,10 +1,10 @@
+import {AddComment, Comment, CommentState} from '@ui';
 import {FC, useState} from 'react';
-const imageGen = require('@dudadev/random-img');
 
 // import useLocalStorage from 'use-local-storage';
+import {CommentsContainerStyled, HeaderStyled, NoReviewsStyled, ReviewsStyled} from './style';
 
-import {HeaderStyled, ReviewsStyled, CommentsContainerStyled, NoReviewsStyled} from './style';
-import {AddComment, Comment, CommentState} from '@ui';
+const imageGen = require('@dudadev/random-img');
 
 function generateRandomId() {
   return 'id-' + Math.random().toString(36).substr(2, 9);

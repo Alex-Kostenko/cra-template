@@ -43,4 +43,4 @@ const ActionsWrap = styled.div`
   }
 `;
 
-export {Avatar, Comment, Name, Text, Wrap, ActionsWrap};
+export {ActionsWrap, Avatar, Comment, Name, Text, Wrap};
