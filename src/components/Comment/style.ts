@@ -6,6 +6,7 @@ const Comment = styled.div`
   width: 100%;
   border-radius: 15px;
   overflow: hidden;
+  position: relative;
 `;
 
 const Wrap = styled.div`
@@ -29,4 +30,17 @@ const Text = styled.p`
   color: black;
 `;
 
-export {Avatar, Comment, Name, Text, Wrap};
+const ActionsWrap = styled.div`
+  display: flex;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  gap: 25px;
+
+  & svg {
+    cursor: pointer;
+    height: 25px;
+  }
+`;
+
+export {Avatar, Comment, Name, Text, Wrap, ActionsWrap};
