@@ -5,14 +5,15 @@ import {EditIcon, TrashIcon} from '@/assets/svg';
 import {ActionsWrap, Avatar, Comment as CommentStyle, Name, Text, Wrap} from './style';
 
 interface CommentProps {
+  id: string;
   text: string;
   avatarSrc: string;
   name: string;
-  onDelete: () => void;
+  onDelete: (id: string) => void;
   onEdit: () => void;
 }
 
-const Comment: FC<CommentProps> = ({text, avatarSrc, name, onDelete, onEdit}) => {
+const Comment: FC<CommentProps> = ({id, text, avatarSrc, name, onDelete, onEdit}) => {
   return (
     <CommentStyle>
       <Avatar src={avatarSrc} />
@@ -22,7 +23,7 @@ const Comment: FC<CommentProps> = ({text, avatarSrc, name, onDelete, onEdit}) =>
       </Wrap>
       <ActionsWrap>
         <EditIcon fill='red' onClick={onEdit} />
-        <TrashIcon fill='red' onClick={onDelete} />
+        <TrashIcon fill='red' onClick={() => onDelete(id)} />
       </ActionsWrap>
     </CommentStyle>
   );

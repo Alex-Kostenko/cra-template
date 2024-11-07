@@ -1,8 +1,11 @@
 import {AddComment, Comment, CommentState} from '@ui';
 import {FC} from 'react';
 import useLocalStorage from 'use-local-storage';
-import {CommentsContainerStyled, HeaderStyled, NoReviewsStyled, ReviewsStyled} from './style';
+
 import {generateRandomId} from '@/utils';
+
+import {CommentsContainerStyled, HeaderStyled, NoReviewsStyled, ReviewsStyled} from './style';
+
 const imageGen = require('@dudadev/random-img');
 
 interface Comment {
@@ -27,12 +30,17 @@ const Reviews: FC = () => {
     setComments([...comments, commentToAdd]);
   };
 
+  const onDeleteComment = (id: string) => {
+    const newComments = comments.filter(comment => comment.id !== id);
+    setComments(newComments);
+  };
+
   return (
     <ReviewsStyled>
       <HeaderStyled>Reviews</HeaderStyled>
       <CommentsContainerStyled>
         {!comments.length && <NoReviewsStyled>No Reviews</NoReviewsStyled>}
-        {!!comments.length && comments.map(comment => <Comment key={comment.id} {...comment} onDelete={() => {}} onEdit={() => {}} />)}
+        {!!comments.length && comments.map(comment => <Comment key={comment.id} {...comment} onDelete={onDeleteComment} onEdit={() => {}} />)}
       </CommentsContainerStyled>
       <AddComment onSave={onAddComment} />
     </ReviewsStyled>
