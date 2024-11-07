@@ -1,7 +1,7 @@
 import {FC, useState} from 'react';
 const imageGen = require('@dudadev/random-img');
 
-import {HeaderStyled, ReviewsStyled,CommentsContainer} from './style';
+import {HeaderStyled, ReviewsStyled,CommentsContainerStyled, NoReviewsStyled} from './style';
 import {AddComment, Comment} from '@ui';
 
 interface Comment {
@@ -30,11 +30,14 @@ const Reviews: FC = () => {
   return (
     <ReviewsStyled>
       <HeaderStyled>Reviews</HeaderStyled>
-      <CommentsContainer>
-        {comments.map(comment => (
-            <Comment key={comment.id} {...comment} />
-        ))}
-      </CommentsContainer>
+      <CommentsContainerStyled>
+        {
+          !comments.length && <NoReviewsStyled>No Reviews</NoReviewsStyled>
+        }
+        {
+          !!comments.length && comments.map(comment => <Comment key={comment.id} {...comment} />)
+        }
+      </CommentsContainerStyled>
       <AddComment onSave={onAddComment} />
     </ReviewsStyled>
   );

@@ -13,10 +13,14 @@ const HeaderStyled = styled.h1`
   text-align: center;
 `;
 
-const CommentsContainer = styled.div`
+const CommentsContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
 `;
 
-export {HeaderStyled,ReviewsStyled,CommentsContainer};
+const NoReviewsStyled = styled.h2`
+  color: white;
+`;
+
+export {HeaderStyled,ReviewsStyled,CommentsContainerStyled, NoReviewsStyled};
