@@ -5,7 +5,7 @@ import {InputStyled} from './style';
 interface InputProps {
   value: string;
   placeholder: string;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: FC<InputProps> = ({value, onChange, placeholder}) => {
