@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const TextAreaStyled = styled.textarea`
-  color: hotpink;
+  color: black;
 `;
 
 export {TextAreaStyled};
