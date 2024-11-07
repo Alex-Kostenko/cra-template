@@ -1,6 +1,6 @@
 import {FC} from 'react';
 
-import {HeaderStyled, ReviewsStyled} from './style';
+import {HeaderStyled, ReviewsStyled,CommentsContainer} from './style';
 import {AddComment, Comment} from '@ui';
 
 const commentsMOCK = [
@@ -40,9 +40,11 @@ const Reviews: FC = () => {
   return (
     <ReviewsStyled>
       <HeaderStyled>Reviews</HeaderStyled>
-      {commentsMOCK.map(comment => (
-        <Comment key={comment.id} {...comment} />
-      ))}
+      <CommentsContainer>
+        {commentsMOCK.map(comment => (
+            <Comment key={comment.id} {...comment} />
+        ))}
+      </CommentsContainer>
       <AddComment onSave={() => {}} />
     </ReviewsStyled>
   );
