@@ -3,7 +3,7 @@ import React, {FC, useState} from 'react';
 import {AddCommentStyled} from './style';
 import {Button, Input, TextArea} from '@ui';
 
-interface CommentState {
+export interface CommentState {
     name: string;
     text: string;
   }

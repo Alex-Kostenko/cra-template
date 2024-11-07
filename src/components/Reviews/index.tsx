@@ -2,7 +2,11 @@ import {FC, useState} from 'react';
 const imageGen = require('@dudadev/random-img');
 
 import {HeaderStyled, ReviewsStyled,CommentsContainerStyled, NoReviewsStyled} from './style';
-import {AddComment, Comment} from '@ui';
+import {AddComment, Comment, CommentState} from '@ui';
+
+function generateRandomId() {
+  return 'id-' + Math.random().toString(36).substr(2, 9);
+}
 
 interface Comment {
     id: string;
@@ -14,12 +18,11 @@ interface Comment {
 const Reviews: FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
-  // @ts-ignore
-  const onAddComment = async (commentData) => {
+  const onAddComment = async (commentData: CommentState) => {
     const url = await imageGen();
 
     const commentToAdd = {
-        id: 'some_random_id',
+        id: generateRandomId(),
         avatarSrc: url,
         ...commentData,
     }
