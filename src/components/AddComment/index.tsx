@@ -3,19 +3,20 @@ import React, {FC, useState} from 'react';
 import {AddCommentStyled} from './style';
 import {Button, Input, TextArea} from '@ui';
 
-interface AddCommentProps {
-  onSave: () => void;
-}
-
 interface CommentState {
-  name: string;
-  comment: string;
+    name: string;
+    text: string;
+  }
+  
+
+interface AddCommentProps {
+  onSave: (data: CommentState) => void;
 }
 
 const AddComment: FC<AddCommentProps> = ({onSave}) => {
   const [commentData, setCommentData] = useState<CommentState>({
     name: '',
-    comment: '',
+    text: '',
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,11 +28,19 @@ const AddComment: FC<AddCommentProps> = ({onSave}) => {
     }));
   };
 
+  const onSaveComment = () => {
+    setCommentData({
+        name: '',
+        text: ''
+    });
+    onSave(commentData);
+  }
+
   return (
     <AddCommentStyled>
-      <Input onChange={handleChange} value={commentData.name} placeholder='Your name' />
-      <TextArea onChange={handleChange} value={commentData.comment} placeholder='Your comment' />
-      <Button text='Save' onClick={onSave} disabled={!commentData.name || !commentData.comment} />
+      <Input onChange={handleChange} value={commentData.name} placeholder='Your name' name="name" />
+      <TextArea onChange={handleChange} value={commentData.text} placeholder='Your comment' name="text" />
+      <Button text='Save' onClick={() => onSaveComment()} disabled={!commentData.name || !commentData.text} />
     </AddCommentStyled>
   );
 };

@@ -6,10 +6,11 @@ interface TextAreaProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder: string;
+  name: string;
 }
 
-const TextArea: FC<TextAreaProps> = ({value, onChange, placeholder}) => {
-  return <TextAreaStyled value={value} onChange={onChange} placeholder={placeholder} />;
+const TextArea: FC<TextAreaProps> = ({value, onChange, placeholder, name}) => {
+  return <TextAreaStyled value={value} name={name} onChange={onChange} placeholder={placeholder} />;
 };
 
 export {TextArea};

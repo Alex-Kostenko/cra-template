@@ -1,9 +1,16 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
 
 import {HeaderStyled, ReviewsStyled,CommentsContainer} from './style';
 import {AddComment, Comment} from '@ui';
 
-const commentsMOCK = [
+interface Comment {
+    id: string;
+    text: string;
+    avatarSrc: string;
+    name: string;
+}
+
+const commentsMOCK: Array<Comment> = [
   {
     id: '1',
     text: 'Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by VasylSome comments by VasylSome comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl Some comments by Vasyl',
@@ -37,15 +44,28 @@ const commentsMOCK = [
 ];
 
 const Reviews: FC = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  // @ts-ignore
+  const onAddComment = (commentData) => {
+    const commentToAdd = {
+        id: 'some_random_id',
+        avatarSrc: 'https://cms.imgworlds.com/assets/a5366382-0c26-4726-9873-45d69d24f819.jpg?key=home-gallery',
+        ...commentData,
+    }
+
+    setComments([...comments, commentToAdd]);
+  }
+
   return (
     <ReviewsStyled>
       <HeaderStyled>Reviews</HeaderStyled>
       <CommentsContainer>
-        {commentsMOCK.map(comment => (
+        {comments.map(comment => (
             <Comment key={comment.id} {...comment} />
         ))}
       </CommentsContainer>
-      <AddComment onSave={() => {}} />
+      <AddComment onSave={onAddComment} />
     </ReviewsStyled>
   );
 };
