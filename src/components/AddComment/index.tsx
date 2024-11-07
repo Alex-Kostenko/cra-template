@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import React, {FC, useState} from 'react';
 
 import {AddCommentStyled} from './style';
 import {Button, Input, TextArea} from '@ui';
@@ -7,18 +7,25 @@ interface AddCommentProps {
   onSave: () => void;
 }
 
+interface CommentState {
+  name: string;
+  comment: string;
+}
+
 const AddComment: FC<AddCommentProps> = ({onSave}) => {
-  const [commentData, setCommentData] = useState<{name: string; comment: string}>({
-      name: '',
-      comment: ''
+  const [commentData, setCommentData] = useState<CommentState>({
+    name: '',
+    comment: '',
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.target;
+    const {name, value} = event.target;
 
-    // @ts-ignore
-    setCommentData({[name]: value});
-  }
+    setCommentData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   return (
     <AddCommentStyled>

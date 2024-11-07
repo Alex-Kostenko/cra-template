@@ -8,4 +8,4 @@ const HeaderStyled = styled.h1`
   text-align: center;
 `;
 
-export {ReviewsStyled, HeaderStyled};
+export {HeaderStyled,ReviewsStyled};
