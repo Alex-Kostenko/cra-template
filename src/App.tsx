@@ -1,9 +1,9 @@
-import {AddComment} from '@ui';
+import {Reviews} from '@ui';
 
 function App() {
   return (
     <div className='App'>
-      <AddComment onSave={() => {}} />
+      <Reviews />
     </div>
   );
 }
