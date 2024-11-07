@@ -16,6 +16,9 @@ it('should display the correct avatar image using the provided avatarSrc', () =>
     name: 'John Doe',
     onDelete: jest.fn(),
     onEdit: jest.fn(),
+    onSelectToEdit: jest.fn(),
+    onSaveEdit: jest.fn(),
+    idToEdit: '',
   };
 
   render(<Comment {...props} />);
@@ -31,6 +34,9 @@ it("should show the user's name in the Name component", () => {
     name: 'John Doe',
     onDelete: jest.fn(),
     onEdit: jest.fn(),
+    onSelectToEdit: jest.fn(),
+    onSaveEdit: jest.fn(),
+    idToEdit: '',
   };
 
   render(<Comment {...props} />);
