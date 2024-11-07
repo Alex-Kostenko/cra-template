@@ -1,5 +1,6 @@
-import {FC} from 'react';
 import {AddComment, CommentState} from '@ui';
+import {FC} from 'react';
+
 import {EditIcon, TrashIcon} from '@/assets/svg';
 
 import {ActionsWrap, Avatar, Comment as CommentStyle, Name, Text, Wrap} from './style';
