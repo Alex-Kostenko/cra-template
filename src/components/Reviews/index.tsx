@@ -1,14 +1,9 @@
 import {AddComment, Comment, CommentState} from '@ui';
-import {FC, useState} from 'react';
-
-// import useLocalStorage from 'use-local-storage';
+import {FC} from 'react';
+import useLocalStorage from 'use-local-storage';
 import {CommentsContainerStyled, HeaderStyled, NoReviewsStyled, ReviewsStyled} from './style';
-
+import {generateRandomId} from '@/utils';
 const imageGen = require('@dudadev/random-img');
-
-function generateRandomId() {
-  return 'id-' + Math.random().toString(36).substr(2, 9);
-}
 
 interface Comment {
   id: string;
@@ -18,7 +13,7 @@ interface Comment {
 }
 
 const Reviews: FC = () => {
-  const [comments, setComments] = useState<Comment[]>([]);
+  const [comments, setComments] = useLocalStorage<Comment[]>('comments', []);
 
   const onAddComment = async (commentData: CommentState) => {
     const url = await imageGen();
