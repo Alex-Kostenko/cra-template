@@ -10,12 +10,14 @@ export interface CommentState {
 
 interface AddCommentProps {
   onSave: (data: CommentState) => void;
+  name?: string | undefined;
+  text?: string | undefined;
 }
 
-const AddComment: FC<AddCommentProps> = ({onSave}) => {
+const AddComment: FC<AddCommentProps> = ({onSave, name = '', text = ''}) => {
   const [commentData, setCommentData] = useState<CommentState>({
-    name: '',
-    text: '',
+    name,
+    text,
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
