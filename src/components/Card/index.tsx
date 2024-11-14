@@ -24,6 +24,7 @@ const RepoCard: FC<RepoCardProps> = ({issue, onSave, isLoading}) => {
     try {
       await onSave({
         variables: {issueId: issue.id, body: comment},
+        // not to refetch again, just update data in cache
         update(cache, {data}) {
           if (!data || !issue.id) return;
 

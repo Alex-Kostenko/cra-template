@@ -2,7 +2,6 @@ import {useMutation, useQuery} from '@apollo/client';
 
 import {ADD_COMMENT_MUTATION} from './graphQL/mutation';
 import {RepoCard} from '@ui';
-
 import {CardWrap} from '@/components/Card/style';
 import {GET_ISSUES_QUERY} from '@/graphQL/query';
 
@@ -26,7 +25,7 @@ function App() {
 
   if (loading) return <p>Loading issues...</p>;
   if (error) return <p>Error fetching issues: {error.message}</p>;
-  if (commentError) return <p>Error fetching issues: {commentError.message}</p>;
+  if (commentError) return <p>Error fetching comments: {commentError.message}</p>;
 
   return (
     <div>
